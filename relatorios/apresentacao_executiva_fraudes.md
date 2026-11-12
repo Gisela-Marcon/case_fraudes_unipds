@@ -50,7 +50,7 @@ Uma em cada 20 transações foi fraude. O ticket médio fraudulento foi **R$ 72,
 
 ## Brasil combina a maior taxa com o maior volume
 
-![Taxa de fraude por país e volume de transações](graficos/md_fraude_pais.svg)
+![Taxa de fraude por país e volume de transações](md_fraude_pais.svg)
 
 O Brasil merece atenção primeiro: tem a maior taxa (**5,52%**) e concentra **111.628 transações**. A incidência é cerca de 1,5 vez a da Argentina. A consulta mostra apenas países com pelo menos mil transações; os quatro exibidos somam 148.832 registros.
 
@@ -62,7 +62,7 @@ O Brasil merece atenção primeiro: tem a maior taxa (**5,52%**) e concentra **1
 
 ## O nível “alto” não se destaca na fraude observada
 
-![Taxa de fraude e volume por nível de risco](graficos/md_fraude_risco_categoria.svg)
+![Taxa de fraude e volume por nível de risco](md_fraude_risco_categoria.svg)
 
 As taxas variam de **4,74% a 5,21%**, diferença de apenas **0,47 ponto percentual**. Curiosamente, “alto” não tem a maior incidência observada. Vale revisar a classificação e abrir o resultado por categoria antes de usar esse nível para bloquear compras ou exigir autenticação.
 
@@ -72,7 +72,7 @@ As taxas variam de **4,74% a 5,21%**, diferença de apenas **0,47 ponto percentu
 
 ## A incidência cresce conforme aumenta o valor da compra
 
-![Taxa de fraude por faixa de compra e volume](graficos/md_fraude_faixas_valor.svg)
+![Taxa de fraude por faixa de compra e volume](md_fraude_faixas_valor.svg)
 
 Acima de R$ 500, a incidência chega a **14,95%**, 3,25 vezes a faixa até R$ 100, mas o grupo tem apenas 1.037 transações. Essa faixa pode comportar uma revisão reforçada com menor impacto no volume total.
 
@@ -84,7 +84,7 @@ Acima de R$ 500, a incidência chega a **14,95%**, 3,25 vezes a faixa até R$ 10
 
 ## Volume de casos e exposição financeira pedem controles diferentes
 
-![Setores com participação dos casos de fraude e do valor exposto por faixa](graficos/md_fraude_casos_exposicao.svg)
+![Setores com participação dos casos de fraude e do valor exposto por faixa](md_fraude_casos_exposicao.svg)
 
 Até R$ 100 concentra **84,2% dos casos**: melhorias de detecção nessa faixa podem alcançar muitos eventos. Já compras acima de R$ 100 respondem por cerca de **69% do valor exposto**, embora representem apenas **15,8% das fraudes**. Vale combinar cobertura ampla nos valores baixos com revisão mais rigorosa nos valores altos.
 
@@ -96,7 +96,7 @@ Até R$ 100 concentra **84,2% dos casos**: melhorias de detecção nessa faixa p
 
 ## D10 tem maior fraude; score ainda exige validação
 
-![Taxa de fraude por decis do score e referência média](graficos/md_fraude_decis_score.svg)
+![Taxa de fraude por decis do score e referência média](md_fraude_decis_score.svg)
 
 No D10, a taxa chega a **21,32%**, cerca de 4,3 vezes a média de 5%. Isso pode ajudar a priorizar análises, desde que o score esteja ordenado no sentido esperado. Os decis intermediários oscilam bastante, então é preciso validar o cálculo antes de tirar conclusões sobre o modelo.
 
