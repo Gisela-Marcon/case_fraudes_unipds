@@ -36,21 +36,13 @@ A análise combina incidência, volume de ocorrências e valor exposto. Os resul
 
 ## 7.500 fraudes representam R$ 547 mil em compras
 
-| Indicador | Resultado |
-|---|---:|
-| Transações analisadas | 150.000 |
-| Fraudes identificadas | 7.500 |
-| Taxa de fraude | 5,0% |
-| Valor exposto | R$ 547.271,12 |
-| Ticket médio da fraude | R$ 72,97 |
-| Ticket médio geral | R$ 43,52 |
+| Transações | Fraudes | Taxa | Valor exposto |
+|---:|---:|---:|---:|
+| 150.000 | 7.500 | 5,0% | R$ 547.271,12 |
 
-### Composição das transações
+![Composição de fraude e não fraude](graficos/md_fraude_composicao.svg)
 
-- Não fraude: **142.500 (95%)** — ███████████████████
-- Fraude: **7.500 (5%)** — █
-
-Uma em cada 20 transações foi fraude. O ticket médio fraudulento supera o ticket geral. O valor exposto é o valor das compras classificadas como fraude, não uma perda líquida confirmada.
+Uma em cada 20 transações foi fraude. O ticket médio fraudulento foi **R$ 72,97**, acima do ticket geral de **R$ 43,52**. Valor exposto é montante transacionado, não perda líquida confirmada.
 
 ---
 
@@ -58,19 +50,11 @@ Uma em cada 20 transações foi fraude. O ticket médio fraudulento supera o tic
 
 ## Brasil combina a maior taxa com o maior volume
 
-| País | Taxa de fraude | Transações |
-|---|---:|---:|
-| Brasil | **5,52%** | **111.628** |
-| Argentina | 3,69% | 31.964 |
-| Estados Unidos | 3,08% | 2.273 |
-| Uruguai | 0,98% | 2.967 |
+![Taxa de fraude por país e volume de transações](graficos/md_fraude_pais.svg)
 
-```text
-Taxa de fraude (linha por categoria, não série temporal)
-Brasil 5,52% ─ Argentina 3,69% ─ Estados Unidos 3,08% ─ Uruguai 0,98%
-```
+O Brasil merece atenção primeiro: tem a maior taxa (**5,52%**) e concentra **111.628 transações**. A incidência é cerca de 1,5 vez a da Argentina. A consulta mostra apenas países com pelo menos mil transações; os quatro exibidos somam 148.832 registros.
 
-O Brasil merece atenção primeiro: tem a maior taxa e concentra 111.628 transações. A incidência é cerca de 1,5 vez a da Argentina. A consulta considera apenas países com mil transações ou mais; os quatro países listados somam 148.832 registros.
+*A linha conecta países ordenados pela taxa; não representa uma série temporal.*
 
 ---
 
@@ -78,15 +62,9 @@ O Brasil merece atenção primeiro: tem a maior taxa e concentra 111.628 transa�
 
 ## O nível “alto” não se destaca na fraude observada
 
-| Nível de risco | Taxa de fraude | Transações | Comparação |
-|---|---:|---:|---|
-| Médio | **5,21%** | 47.079 | █████████████████████ |
-| Alto | 5,06% | 53.379 | ████████████████████ |
-| Baixo | 4,74% | 49.542 | ███████████████████ |
+![Taxa de fraude e volume por nível de risco](graficos/md_fraude_risco_categoria.svg)
 
-**Diferença entre a maior e a menor taxa: 0,47 ponto percentual.**
-
-Os resultados pouco diferem entre níveis. Curiosamente, “alto” não tem a maior incidência observada. Vale revisar a regra de classificação e abrir o resultado por categoria antes de usar esse nível para bloquear compras ou exigir autenticação.
+As taxas variam de **4,74% a 5,21%**, diferença de apenas **0,47 ponto percentual**. Curiosamente, “alto” não tem a maior incidência observada. Vale revisar a classificação e abrir o resultado por categoria antes de usar esse nível para bloquear compras ou exigir autenticação.
 
 ---
 
@@ -94,15 +72,11 @@ Os resultados pouco diferem entre níveis. Curiosamente, “alto” não tem a m
 
 ## A incidência cresce conforme aumenta o valor da compra
 
-| Faixa de compra | Taxa de fraude | Transações | Barra de incidência |
-|---|---:|---:|---|
-| Até R$ 100 | 4,60% | 137.284 | ██████ |
-| R$ 100–500 | 8,84% | 11.679 | ███████████ |
-| Acima de R$ 500 | **14,95%** | 1.037 | ███████████████████ |
+![Taxa de fraude por faixa de compra e volume](graficos/md_fraude_faixas_valor.svg)
 
-A fraude fica mais frequente conforme aumenta o valor: 4,60% até R$ 100, 8,84% entre R$ 100 e R$ 500 e 14,95% acima de R$ 500. A última faixa tem incidência 3,25 vezes maior que a primeira, mas reúne apenas 1.037 transações.
+Acima de R$ 500, a incidência chega a **14,95%**, 3,25 vezes a faixa até R$ 100, mas o grupo tem apenas 1.037 transações. Essa faixa pode comportar uma revisão reforçada com menor impacto no volume total.
 
-*As barras comparam grupos agregados definidos na consulta; não representam um histograma de observações individuais.*
+*O gráfico compara faixas agregadas definidas na query; não é um histograma de transações individuais.*
 
 ---
 
@@ -110,25 +84,11 @@ A fraude fica mais frequente conforme aumenta o valor: 4,60% até R$ 100, 8,84% 
 
 ## Volume de casos e exposição financeira pedem controles diferentes
 
-### Participação das fraudes
+![Setores com participação dos casos de fraude e do valor exposto por faixa](graficos/md_fraude_casos_exposicao.svg)
 
-| Faixa | Casos | Participação |
-|---|---:|---:|
-| Até R$ 100 | 6.313 | **84,2%** |
-| R$ 100–500 | 1.032 | 13,8% |
-| Acima de R$ 500 | 155* | 2,1% |
+Até R$ 100 concentra **84,2% dos casos**: melhorias de detecção nessa faixa podem alcançar muitos eventos. Já compras acima de R$ 100 respondem por cerca de **69% do valor exposto**, embora representem apenas **15,8% das fraudes**. Vale combinar cobertura ampla nos valores baixos com revisão mais rigorosa nos valores altos.
 
-### Participação do valor exposto
-
-| Faixa | Valor exposto | Participação |
-|---|---:|---:|
-| Até R$ 100 | R$ 169.628,21 | 31,0% |
-| R$ 100–500 | R$ 233.386,93 | 42,6% |
-| Acima de R$ 500 | R$ 144.255,98* | 26,4% |
-
-Até R$ 100 concentra a maior parte dos casos, então pequenas melhorias na detecção podem alcançar muitos eventos. Já compras acima de R$ 100 respondem por cerca de 69% do valor exposto, embora representem apenas 15,8% das fraudes. Vale combinar cobertura ampla nos valores baixos com revisão mais rigorosa nos valores altos.
-
-\* **Estimativas derivadas dos totais:** a linha da faixa acima de R$ 500 na query foi enviada incompleta. Confirmar 155 fraudes e R$ 144.255,98 expostos na saída completa. A perda média derivada é R$ 930,68 por fraude.
+**Faixa acima de R$ 500 — estimativas derivadas:** 155 fraudes e R$ 144.255,98 expostos, porque a linha da query foi enviada incompleta. Validar esses valores na saída integral. A perda média derivada é R$ 930,68 por fraude.
 
 ---
 
@@ -136,22 +96,11 @@ Até R$ 100 concentra a maior parte dos casos, então pequenas melhorias na dete
 
 ## D10 tem maior fraude; score ainda exige validação
 
-| Decil | Taxa de fraude | Comparação com a média (5%) |
-|---:|---:|---|
-| D1 | 2,81% | ███ |
-| D2 | 4,59% | █████ |
-| D3 | 3,29% | ███ |
-| D4 | 0,31% | ▏ |
-| D5 | 0,62% | ▋ |
-| D6 | 1,26% | █ |
-| D7 | 1,96% | ██ |
-| D8 | 5,24% | █████ |
-| D9 | 8,60% | █████████ |
-| D10 | **21,32%** | █████████████████████ |
+![Taxa de fraude por decis do score e referência média](graficos/md_fraude_decis_score.svg)
 
-Cada decis contém 15.000 transações. No D10, a taxa chega a 21,32% — 4,3 vezes a média da base. Isso pode ajudar a priorizar análises, desde que o score esteja ordenado no sentido esperado. Como os decis intermediários oscilam bastante, validar o cálculo e a direção do score antes de tirar conclusões sobre o modelo.
+No D10, a taxa chega a **21,32%**, cerca de 4,3 vezes a média de 5%. Isso pode ajudar a priorizar análises, desde que o score esteja ordenado no sentido esperado. Os decis intermediários oscilam bastante, então é preciso validar o cálculo antes de tirar conclusões sobre o modelo.
 
-**Antes de usar em decisões automáticas:** confirmar a ordenação do `NTILE`, o sentido do score, a consistência do universo e a ausência de vazamento. Calcular fraudes e métricas de ranking/calibração por decis.
+**Antes de usar em decisões automáticas:** confirmar a direção do `NTILE`, o sentido do score, a consistência do universo e a ausência de vazamento. Calcular fraudes e métricas de ranking/calibração por decis.
 
 ---
 
@@ -198,11 +147,6 @@ Cada decis contém 15.000 transações. No D10, a taxa chega a 21,32% — 4,3 ve
 
 ### Como saber se funcionou
 
-O piloto deve reduzir fraude ou valor exposto sem deteriorar de forma inaceitável a aprovação e a experiência do cliente. Fazer revisão semanal de:
-
-- Fraudes confirmadas e taxa
-- Valor exposto e perda líquida
-- Aprovação e falsos positivos
-- Fila e tempo de revisão
+O piloto deve reduzir fraude ou valor exposto sem deteriorar de forma inaceitável a aprovação e a experiência do cliente. Fazer revisão semanal de fraudes confirmadas e taxa, valor exposto e perda líquida, aprovação e falsos positivos, fila e tempo de revisão.
 
 *Os resultados atuais definem prioridades para teste; o efeito dos controles será conhecido após o piloto.*
