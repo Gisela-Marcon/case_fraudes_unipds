@@ -40,7 +40,7 @@ A análise combina incidência, volume de ocorrências e valor exposto. Os resul
 |---:|---:|---:|---:|
 | 150.000 | 7.500 | 5,0% | R$ 547.271,12 |
 
-![Composição de fraude e não fraude](relatorios/md_fraude_composicao.svg)
+![Composição de fraude e não fraude](md_fraude_composicao.svg)
 
 Uma em cada 20 transações foi fraude. O ticket médio fraudulento foi **R$ 72,97**, acima do ticket geral de **R$ 43,52**. Valor exposto é montante transacionado, não perda líquida confirmada.
 
